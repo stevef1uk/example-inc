@@ -6,11 +6,9 @@ Instructions don't mention the need to apply the yaml file:
 
 If this isn't applied the operator pod errors.
 
-To run on minikube you will need to run:
+Then from https://hackernoon.com/local-kubernetes-setup-with-minikube-on-mac-os-x-eeeb1cbdc0b
 
-then from https://hackernoon.com/local-kubernetes-setup-with-minikube-on-mac-os-x-eeeb1cbdc0b
-
-after the build step:
+after the build step run:
 
 eval $(minikube docker-env)
 
@@ -19,3 +17,4 @@ docker run -d -p 5000:5000 --restart=always --name registry registry:2
 docker tag cb166c8d4517 localhost:5000/quay.io/example/memcached-operator:v0.0.1
 docker push localhost:5000/quay.io/example/memcached-operator:v0.0.1
 
+Then edit the deploy file to use the image name: localhost:5000/quay.io/example/memcached-operator:v0.0.1
